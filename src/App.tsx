@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { isHoliday, isBusinessDay, getHoliday, getHolidays, getNextHoliday, getHolidaysInRange, addBusinessDays, getBusinessDaysInRange } from "@krizad/thai-financial-holiday";
+import { isHoliday, isBusinessDay, getHoliday, getHolidays, getNextHoliday, getHolidaysInRange, addBusinessDays, getBusinessDaysInRange } from "@krizad/thai-financial-holiday-helper";
 import CodeBlock from "./CodeBlock";
 
 function getTodayStr(): string {
@@ -99,7 +99,7 @@ function App() {
         <h1>Thai Financial Holiday</h1>
         <p className="subtitle">ข้อมูลวันหยุดทางการเงินของสถาบันการเงินไทย (ธปท.) พร้อมฟังก์ชันตรวจสอบ ค้นหา และคำนวณวันทำการ</p>
         <div className="badge-row">
-          <img src="https://img.shields.io/npm/v/@krizad/thai-financial-holiday.svg?style=flat-square&color=f59e0b" alt="npm version" />
+          <img src="https://img.shields.io/npm/v/@krizad/thai-financial-holiday-helper.svg?style=flat-square&color=f59e0b" alt="npm version" />
           <img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square" alt="license" />
         </div>
       </header>
@@ -285,7 +285,7 @@ function App() {
           </h2>
           <p className="section-desc">ตรวจสอบว่าวันที่กำหนดเป็นวันหยุดสถาบันการเงินหรือไม่ รองรับ Date, string (YYYY-MM-DD) และ timestamp</p>
           <div className="code-block">
-            <CodeBlock code={`import { isHoliday, getHoliday } from '@krizad/thai-financial-holiday';
+            <CodeBlock code={`import { isHoliday, getHoliday } from '@krizad/thai-financial-holiday-helper';
 
 // ตรวจสอบวันหยุด
 isHoliday('2026-01-01');     // true  (วันขึ้นปีใหม่)
@@ -306,7 +306,7 @@ getHoliday('2026-01-05');    // null (ไม่ใช่วันหยุด)`}
           </h2>
           <p className="section-desc">ดึงรายการวันหยุดทั้งหมด หรือกรองเฉพาะปี/เดือนที่ต้องการ</p>
           <div className="code-block">
-            <CodeBlock code={`import { getHolidays } from '@krizad/thai-financial-holiday';
+            <CodeBlock code={`import { getHolidays } from '@krizad/thai-financial-holiday-helper';
 
 // ดึงวันหยุดทั้งหมด (5 ปีย้อนหลัง)
 const all = getHolidays();
@@ -326,7 +326,7 @@ const jan2026 = getHolidays(2026, 1);
           </h2>
           <p className="section-desc">หาวันหยุดถัดไปนับจากวันที่กำหนด (ถ้าไม่ระบุ ใช้วันปัจจุบัน)</p>
           <div className="code-block">
-            <CodeBlock code={`import { getNextHoliday } from '@krizad/thai-financial-holiday';
+            <CodeBlock code={`import { getNextHoliday } from '@krizad/thai-financial-holiday-helper';
 
 const next = getNextHoliday('2025-12-31');
 // { Date: "2026-01-01", HolidayDescriptionThai: "วันขึ้นปีใหม่", ... }
@@ -342,7 +342,7 @@ const upcoming = getNextHoliday();`} />
           </h2>
           <p className="section-desc">ดึงรายการวันหยุดระหว่างช่วงวันที่เริ่มต้นและสิ้นสุด (Inclusive)</p>
           <div className="code-block">
-            <CodeBlock code={`import { getHolidaysInRange } from '@krizad/thai-financial-holiday';
+            <CodeBlock code={`import { getHolidaysInRange } from '@krizad/thai-financial-holiday-helper';
 
 const holidays = getHolidaysInRange('2026-01-01', '2026-01-05');
 // [
@@ -362,7 +362,7 @@ const holidays = getHolidaysInRange('2026-01-01', '2026-01-05');
   isBusinessDay,
   addBusinessDays,
   getBusinessDaysInRange
-} from '@krizad/thai-financial-holiday';
+} from '@krizad/thai-financial-holiday-helper';
 
 // ตรวจสอบวันทำการ
 isBusinessDay('2026-01-01');  // false (วันหยุดปีใหม่)
@@ -404,13 +404,13 @@ type DateInput = string | Date | number;`} />
           </h2>
           <div className="code-snippet">
             <pre>{`# npm
-npm install @krizad/thai-financial-holiday
+npm install @krizad/thai-financial-holiday-helper
 
 # pnpm
-pnpm add @krizad/thai-financial-holiday
+pnpm add @krizad/thai-financial-holiday-helper
 
 # yarn
-yarn add @krizad/thai-financial-holiday`}</pre>
+yarn add @krizad/thai-financial-holiday-helper`}</pre>
           </div>
 
           <div className="result-grid" style={{ marginTop: "1.5rem" }}>
@@ -444,11 +444,11 @@ yarn add @krizad/thai-financial-holiday`}</pre>
             KriZad
           </a>
           {" · "}
-          <a href="https://github.com/KriZad/thai-financial-holiday" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/krizad/thai-financial-holiday-helper-package" target="_blank" rel="noopener noreferrer">
             GitHub
           </a>
           {" · "}
-          <a href="https://www.npmjs.com/package/@krizad/thai-financial-holiday" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.npmjs.com/package/@krizad/thai-financial-holiday-helper" target="_blank" rel="noopener noreferrer">
             npm
           </a>
         </p>

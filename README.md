@@ -1,6 +1,6 @@
 # Thai Financial Holiday - Demo & Docs
 
-เว็บไซต์ Demo & Documentation สำหรับแพ็กเกจ [@krizad/thai-financial-holiday](https://www.npmjs.com/package/@krizad/thai-financial-holiday)
+เว็บไซต์ Demo & Documentation สำหรับแพ็กเกจ [@krizad/thai-financial-holiday-helper](https://www.npmjs.com/package/@krizad/thai-financial-holiday-helper)
 
 ## 🌟 Features
 
