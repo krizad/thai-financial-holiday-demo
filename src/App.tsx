@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { isHoliday, isBusinessDay, getHoliday, getHolidays, getNextHoliday, getHolidaysInRange, addBusinessDays, getBusinessDaysInRange, type BOTHoliday } from "@krizad/thai-financial-holiday";
+import { isHoliday, isBusinessDay, getHoliday, getHolidays, getNextHoliday, getHolidaysInRange, addBusinessDays, getBusinessDaysInRange } from "@krizad/thai-financial-holiday";
 import CodeBlock from "./CodeBlock";
 
 function getTodayStr(): string {
