@@ -1,0 +1,584 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --bg-dark: #0f111a;
+  --bg-card: rgba(25, 28, 41, 0.6);
+  --bg-input: rgba(15, 17, 26, 0.8);
+  --text-main: #f8f9fa;
+  --text-muted: #a0aabf;
+  --accent-primary: #f59e0b;
+  --accent-primary-hover: #d97706;
+  --accent-primary-glow: rgba(245, 158, 11, 0.15);
+  --accent-success: #10b981;
+  --accent-error: #ef4444;
+  --accent-info: #3b82f6;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --glow-color: rgba(245, 158, 11, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Prompt', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(circle at 15% 50%, var(--glow-color), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(16, 185, 129, 0.06), transparent 25%);
+  background-attachment: fixed;
+}
+
+.app-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+/* ============================================
+   Header
+   ============================================ */
+
+header {
+  text-align: center;
+  margin-bottom: 4rem;
+  animation: fadeInDown 0.8s ease-out forwards;
+}
+
+h1 {
+  font-family: 'Prompt', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #fff 0%, #f59e0b 60%, #d97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.badge-row {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.badge-row img {
+  height: 20px;
+}
+
+/* ============================================
+   Glass Panel
+   ============================================ */
+
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.glass-panel:nth-child(1) { animation-delay: 0.05s; }
+.glass-panel:nth-child(2) { animation-delay: 0.1s; }
+.glass-panel:nth-child(3) { animation-delay: 0.15s; }
+.glass-panel:nth-child(4) { animation-delay: 0.2s; }
+.glass-panel:nth-child(5) { animation-delay: 0.25s; }
+.glass-panel:nth-child(6) { animation-delay: 0.3s; }
+.glass-panel:nth-child(7) { animation-delay: 0.35s; }
+.glass-panel:nth-child(8) { animation-delay: 0.4s; }
+.glass-panel:nth-child(9) { animation-delay: 0.45s; }
+.glass-panel:nth-child(10) { animation-delay: 0.5s; }
+.glass-panel:nth-child(11) { animation-delay: 0.55s; }
+
+.glass-panel:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.section-title {
+  font-family: 'Prompt', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-title span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--accent-primary-glow);
+  color: var(--accent-primary);
+  border-radius: 8px;
+  font-size: 1.2rem;
+}
+
+.section-desc {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* ============================================
+   Forms & Inputs
+   ============================================ */
+
+.input-group {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.input-field {
+  flex: 1;
+  min-width: 200px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 0.875rem 1.25rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Prompt', monospace;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.input-field:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+}
+
+.select-field {
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 0.875rem 1.25rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Prompt', sans-serif;
+  transition: all 0.2s ease;
+  outline: none;
+  cursor: pointer;
+  min-width: 140px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23a0aabf' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.select-field:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+}
+
+.select-field option {
+  background: #1a1d2e;
+  color: var(--text-main);
+}
+
+.btn {
+  background: var(--accent-primary);
+  color: #0f111a;
+  border: none;
+  padding: 0.875rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  background: var(--accent-primary-hover);
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+/* ============================================
+   Result Displays
+   ============================================ */
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.result-card {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  transition: border-color 0.3s;
+}
+
+.result-card:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.result-label {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin-bottom: 0.375rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.result-value {
+  font-weight: 600;
+  color: var(--text-main);
+  font-size: 1.05rem;
+}
+
+.result-value.holiday {
+  color: var(--accent-error);
+}
+
+.result-value.business {
+  color: var(--accent-success);
+}
+
+.result-value.info {
+  color: var(--accent-info);
+}
+
+.result-value.accent {
+  color: var(--accent-primary);
+}
+
+/* Status Badges */
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  gap: 0.375rem;
+  animation: popIn 0.3s ease-out;
+}
+
+.status-holiday {
+  background: rgba(239, 68, 68, 0.12);
+  color: var(--accent-error);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+.status-business {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--accent-success);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.status-weekend {
+  background: rgba(245, 158, 11, 0.12);
+  color: var(--accent-primary);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+/* Holiday Detail Card */
+
+.holiday-detail {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(245, 158, 11, 0.15);
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin-top: 1rem;
+  animation: slideDown 0.3s ease-out;
+}
+
+.holiday-detail-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--accent-primary);
+  margin-bottom: 0.25rem;
+}
+
+.holiday-detail-sub {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   Holiday Table
+   ============================================ */
+
+.holiday-table-wrapper {
+  overflow-x: auto;
+  margin-top: 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+.holiday-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.holiday-table thead {
+  background: rgba(245, 158, 11, 0.08);
+}
+
+.holiday-table th {
+  padding: 0.875rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--accent-primary);
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.holiday-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  color: var(--text-main);
+}
+
+.holiday-table tbody tr {
+  transition: background 0.2s;
+}
+
+.holiday-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.holiday-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table-count {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.table-count strong {
+  color: var(--accent-primary);
+}
+
+.day-badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-muted);
+}
+
+/* ============================================
+   Code Snippets - VS Code Dark+ Theme
+   ============================================ */
+
+.code-snippet,
+.code-block {
+  background: #1e1e1e;
+  border-radius: 10px;
+  padding: 1.25rem;
+  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+  font-size: 0.84rem;
+  color: #d4d4d4;
+  overflow-x: auto;
+  margin-top: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  line-height: 1.75;
+  tab-size: 2;
+}
+
+.code-block pre {
+  margin: 0;
+}
+
+.code-block code {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* VS Code Dark+ token colors */
+.tk-keyword    { color: #c586c0; }
+.tk-function   { color: #dcdcaa; }
+.tk-string     { color: #ce9178; }
+.tk-comment    { color: #6a9955; font-style: italic; }
+.tk-type       { color: #4ec9b0; }
+.tk-number     { color: #b5cea8; }
+.tk-property   { color: #9cdcfe; }
+.tk-punctuation { color: #d4d4d4; }
+
+/* ============================================
+   Next Holiday Countdown
+   ============================================ */
+
+.countdown-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 1rem 1.25rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.countdown-number {
+  font-family: 'Prompt', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--accent-primary);
+  line-height: 1;
+}
+
+.countdown-label {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.countdown-name {
+  font-weight: 600;
+  color: var(--text-main);
+  font-size: 1rem;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border-color);
+  margin-top: 4rem;
+}
+
+footer a {
+  color: var(--accent-primary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+footer a:hover {
+  color: var(--text-main);
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 768px) {
+  h1 { font-size: 2.5rem; }
+  .input-group { flex-direction: column; }
+  .btn { width: 100%; }
+  .select-field { width: 100%; }
+  .result-grid { grid-template-columns: 1fr; }
+  .countdown-number { font-size: 2rem; }
+  .glass-panel { padding: 1.5rem; }
+}
